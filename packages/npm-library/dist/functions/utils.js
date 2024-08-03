@@ -2,5 +2,5 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.InternalImport = InternalImport;
 function InternalImport() {
-    return "Internal Import";
+    return 'Internal Import';
 }

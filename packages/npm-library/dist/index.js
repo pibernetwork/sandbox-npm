@@ -17,5 +17,5 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.Library = Library;
 __exportStar(require("./functions/utils"), exports);
 function Library() {
-    return "NPM Library";
+    return 'NPM Library';
 }
