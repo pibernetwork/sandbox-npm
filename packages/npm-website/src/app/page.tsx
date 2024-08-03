@@ -1,4 +1,9 @@
 import { InternalImport, Library } from '@npm/library';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'NPM Website',
+};
 
 export default function Home() {
   return (
