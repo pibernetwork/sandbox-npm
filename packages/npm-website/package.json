@@ -6,6 +6,7 @@
     "react-dom": "^18"
   },
   "devDependencies": {
+    "@piber/prettier-config": "^0.1.1",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
@@ -17,10 +18,12 @@
   },
   "name": "@npm/website",
   "private": true,
+  "prettier": "@piber/prettier-config",
   "scripts": {
     "build": "next build",
     "check": "tsc --noEmit",
     "dev": "next dev",
+    "format": "prettier --write .",
     "lint": "next lint",
     "start": "next start"
   },

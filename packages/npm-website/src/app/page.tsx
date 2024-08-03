@@ -1,4 +1,4 @@
-import { InternalImport, Library } from "@npm/library";
+import { InternalImport, Library } from '@npm/library';
 
 export default function Home() {
   return (

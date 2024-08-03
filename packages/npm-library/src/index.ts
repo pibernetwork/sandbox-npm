@@ -1,5 +1,5 @@
-export * from "./functions/utils";
+export * from './functions/utils';
 
 export function Library() {
-  return "NPM Library";
+  return 'NPM Library';
 }

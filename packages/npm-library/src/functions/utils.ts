@@ -1,3 +1,3 @@
 export function InternalImport() {
-  return "Internal Import";
+  return 'Internal Import';
 }
