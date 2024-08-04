@@ -13,6 +13,12 @@ jobs:
     steps:
       # Checkout the repository
       - uses: actions/checkout@v4
+      - name: Install dependencies
+        run: npm install --legacy-peer-deps
+      - name: Run linters
+        run: npm run lint --ws
+      - name: Run checks
+        run: npm run check --ws
 
       # Determine which paths have changed
       - uses: dorny/paths-filter@v3
