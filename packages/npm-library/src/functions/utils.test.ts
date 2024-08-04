@@ -6,6 +6,8 @@ describe('Test Utils', () => {
   });
 
   test('Get Random Number', () => {
-    expect(GetRandomNumber()).toBeLessThanOrEqual(1);
+    const randomNumber = GetRandomNumber();
+    expect(randomNumber).toBeGreaterThanOrEqual(0);
+    expect(randomNumber).toBeLessThanOrEqual(1);
   });
 });

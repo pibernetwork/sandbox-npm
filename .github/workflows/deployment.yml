@@ -21,13 +21,13 @@ jobs:
         with:
           filters: |
             library:
-              - 'packages/library/**'
+              - 'packages/npm-library/**'
             website:
-              - 'packages/website/**'
-              - 'packages/library/**'
+              - 'packages/npm-website/**'
+              - 'packages/npm-library/**'
             api:
-              - 'packages/api/**'
-              - 'packages/library/**'
+              - 'packages/npm-api/**'
+              - 'packages/npm-library/**'
 
       # Deploy Website if it has changes
       - name: Deploy Website
