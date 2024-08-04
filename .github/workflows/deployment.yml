@@ -1,0 +1,40 @@
+name: Deployment
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      # Checkout the repository
+      - uses: actions/checkout@v2
+
+      # Determine which paths have changed
+      - uses: dorny/paths-filter@v2
+        id: changes
+        with:
+          filters: |
+            library:
+              - 'packages/library/**'
+            website:
+              - 'packages/website/**'
+              - 'packages/library/**'
+            api:
+              - 'packages/api/**'
+              - 'packages/library/**'
+
+      # Deploy Website if it has changes
+      - name: Deploy Website
+        if: steps.changes.outputs.website == 'true'
+        run: echo "Deploying Website" # Replace this with your actual deploy command for the website
+
+      # Deploy API if it has changes
+      - name: Deploy API
+        if: steps.changes.outputs.api == 'true'
+        run: echo "Deploying API" # Replace this with your actual deploy command for the API
