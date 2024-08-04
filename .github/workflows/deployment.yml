@@ -33,8 +33,16 @@ jobs:
       - name: Deploy Website
         if: steps.changes.outputs.website == 'true'
         run: echo "Deploying Website" # Replace this with your actual deploy command for the website
+      - name: Change directory
+        run: cd packages/npm-website
+      - name: List files
+        run: ls -l
 
       # Deploy API if it has changes
       - name: Deploy API
         if: steps.changes.outputs.api == 'true'
         run: echo "Deploying API" # Replace this with your actual deploy command for the API
+      - name: Change directory
+        run: cd packages/npm-api
+      - name: List files
+        run: ls -l
