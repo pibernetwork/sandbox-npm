@@ -42,7 +42,7 @@ jobs:
 
       # Deploy Website if it has changes
       - name: Deploy Website
-        #if: steps.changes.outputs.website == 'true'
+        if: steps.changes.outputs.website == 'true'
         uses: ./.github/actions/deploy-production
         with:
           vercel_token: ${{ secrets.VERCEL_TOKEN }}
@@ -51,7 +51,7 @@ jobs:
 
       # Deploy API if it has changes
       - name: Deploy API
-        #if: steps.changes.outputs.api == 'true'
+        if: steps.changes.outputs.api == 'true'
         uses: ./.github/actions/deploy-production
         with:
           vercel_token: ${{ secrets.VERCEL_TOKEN }}
