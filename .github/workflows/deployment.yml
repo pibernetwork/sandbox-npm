@@ -7,7 +7,6 @@ on:
   pull_request:
     branches:
       - main
-
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -32,25 +31,18 @@ jobs:
 
       # Deploy Website if it has changes
       - name: Deploy Website
-        if: steps.changes.outputs.website == 'true'
-        run: echo "Deploying Website" # Replace this with your actual deploy command for the website
-      - name: List contents of the specified directory
-        if: steps.changes.outputs.website == 'true'
-        uses: ./.github/actions/ls
+        #if: steps.changes.outputs.website == 'true'
+        uses: ./.github/actions/deploy-production
         with:
-          directory: "packages/npm-website"
-      - name: Vercel Production
-        if: steps.changes.outputs.website == 'true'
-        uses: ./.github/actions/vercel-production
-        with:
-          directory: "packages/npm-website"
+          vercel_token: ${{ secrets.VERCEL_TOKEN }}
+          vercel_scope_id: ${{ secrets.VERCEL_SCOPE_ID }}
+          vercel_project_id: ${{ secrets.VERCEL_WEBSITE_ID }}
 
       # Deploy API if it has changes
       - name: Deploy API
-        if: steps.changes.outputs.api == 'true'
-        run: echo "Deploying API" # Replace this with your actual deploy command for the API
-      - name: List contents of the specified directory
-        if: steps.changes.outputs.website == 'true'
-        uses: ./.github/actions/ls
+        #if: steps.changes.outputs.api == 'true'
+        uses: ./.github/actions/deploy-production
         with:
-          directory: "packages/npm-api"
+          vercel_token: ${{ secrets.VERCEL_TOKEN }}
+          vercel_scope_id: ${{ secrets.VERCEL_SCOPE_ID }}
+          vercel_project_id: ${{ secrets.VERCEL_API_ID }}

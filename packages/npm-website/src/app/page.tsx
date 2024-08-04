@@ -11,7 +11,7 @@ export default function Home() {
       <div>{Library()}</div>
       <div>{InternalImport()}</div>
       <div>Site</div>
-      <div>Make it CLI</div>
+      <div>Make it Github Actions 2</div>
     </main>
   );
 }
