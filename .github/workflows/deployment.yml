@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       # Checkout the repository
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
 
       # Determine which paths have changed
       - uses: dorny/paths-filter@v2
