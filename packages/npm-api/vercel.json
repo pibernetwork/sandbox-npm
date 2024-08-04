@@ -5,6 +5,9 @@
       "use": "@vercel/node"
     }
   ],
+  "git": {
+    "deploymentEnabled": false
+  },
   "routes": [
     {
       "dest": "src/main.ts",
