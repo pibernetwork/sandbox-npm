@@ -16,9 +16,10 @@ jobs:
       - uses: actions/checkout@v4
 
       # Determine which paths have changed
-      - uses: dorny/paths-filter@v2
+      - uses: dorny/paths-filter@v3
         id: changes
         with:
+          base: main
           filters: |
             library:
               - 'packages/npm-library/**'
@@ -33,16 +34,23 @@ jobs:
       - name: Deploy Website
         if: steps.changes.outputs.website == 'true'
         run: echo "Deploying Website" # Replace this with your actual deploy command for the website
-      - name: Change directory
-        run: cd packages/npm-website
-      - name: List files
-        run: ls -l
+      - name: List contents of the specified directory
+        if: steps.changes.outputs.website == 'true'
+        uses: ./.github/actions/ls
+        with:
+          directory: "packages/npm-website"
+      - name: Vercel Production
+        if: steps.changes.outputs.website == 'true'
+        uses: ./.github/actions/vercel-production
+        with:
+          directory: "packages/npm-website"
 
       # Deploy API if it has changes
       - name: Deploy API
         if: steps.changes.outputs.api == 'true'
         run: echo "Deploying API" # Replace this with your actual deploy command for the API
-      - name: Change directory
-        run: cd packages/npm-api
-      - name: List files
-        run: ls -l
+      - name: List contents of the specified directory
+        if: steps.changes.outputs.website == 'true'
+        uses: ./.github/actions/ls
+        with:
+          directory: "packages/npm-api"

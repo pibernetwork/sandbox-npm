@@ -1,0 +1,13 @@
+name: "List Contents of Directory"
+description: "List the contents of a specified directory"
+inputs:
+  directory:
+    description: "Directory to list contents of"
+    required: true
+    default: "."
+runs:
+  using: "composite"
+  steps:
+    - name: List directory contents
+      run: ls -l ${{ inputs.directory }}
+      shell: bash

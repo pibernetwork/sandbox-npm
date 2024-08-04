@@ -1,0 +1,16 @@
+name: "Deploy to Production"
+description: "Deploy to Production"
+inputs:
+  directory:
+    description: "Package directory"
+    required: true
+    default: "."
+runs:
+  using: "composite"
+  steps:
+    - name: List directory contents
+      run: ls -l ${{ inputs.directory }}
+      shell: bash
+    - name: Done
+      run: echo "Done"
+      shell: Bash

@@ -11,7 +11,7 @@ export default function Home() {
       <div>{Library()}</div>
       <div>{InternalImport()}</div>
       <div>Site</div>
-      <div>Make it</div>
+      <div>Make it CLI</div>
     </main>
   );
 }
